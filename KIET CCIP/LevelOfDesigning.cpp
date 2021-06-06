@@ -1,37 +1,40 @@
 //question//
 
-Internal nodes are those nodes of tree that have atleast one child and the node with no child called as leaf. N-ary tree is a tree in which a node can have maximum of n-child.
+In designing a combinational circuit in Digital Logic Design (DLD), we use the elements like Multiplexers, Demultiplexers, Decoders etc. In this question we will consider the designing of Multiplexers only.
 
-We have a n-ary tree with X internal nodes. Find the maximum number of leaf nodes present in that tree.
+Multiplexer is a logical device with multiple inputs and only single output with select lines.
 
-Ex- Binary tree with 3 internal nodes can have maximum of 4 leaf nodes. Similarly ternary(3-ary) with 5 internal nodes can have maximum of 11 leaf nodes. Generalise the concept and find out the the number of leaf nodes for various n-ary tree with different internal nodes.
+Ex: In a “ N X 1” multiplexer, we have N inputs, 1 output and ‘log N’ select lines.
+
+We can implement a “M X 1” multiplexer using few “N X 1” multiplexers iff M > N. We ned to find that, how many level of design with multiplexers of size “N X 1” requires to develop a completely mature multiplexer of size “M X 1”. If not possible then print “Not Possible” as output.
 
 Input Format
 
-Input the value of n & X respectively
+Input contains two integers M & N respectively.
 
 Constraints
 
-1 <= n <= 10
+1 <= M <= 2000
 
-1 <= X <= 25
+1 <= N <= 1000
 
 Output Format
 
-Print the number of leafs.
+Print the number of levels needed for mature implementation or “Not Possible”.
 
 Sample Input 0
 
-2 3
+8 2
 Sample Output 0
 
-4
+3
 Sample Input 1
 
-3 5
+16 64
 Sample Output 1
 
-11
+Not Possible
+
 
 
 
@@ -46,9 +49,23 @@ using namespace std;
 
 
 int main() {
-    int n,m;
-    cin>>n>>m;
-    cout<<(n*m)-(m-1);
     
+    int m,n;
+    float square;
+    cin>>m>>n;
+    if(m>n)
+    {
+        square = sqrt(m);
+        
+        if(square==n)
+        {
+            cout<<"2";
+        }
+        else
+            cout<<"3";
+    }
+    else 
+        cout<<"Not Possible";
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
     return 0;
 }
